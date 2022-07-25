@@ -90,6 +90,6 @@ UPDATE Proyectos SET fechaFin='9999-12-31' WHERE idProyecto=1;
 UPDATE Proyectos SET fechaFin='9999-12-31' WHERE idEmpresa='B-541354G';
 
 SELECT * FROM Trabajadores;
-DELETE FROM Trabajadores ORDER BY apellidos LIMIT 1;
+DELETE FROM Trabajadores ORDER BY apellidos LIMIT 1; #comprobacion de error al tener on delete restrict
 
 SELECT * FROM Realiza;
