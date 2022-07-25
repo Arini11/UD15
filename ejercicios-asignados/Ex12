@@ -20,7 +20,7 @@ INSERT INTO Trabajadores values
 	(DEFAULT, '54651854C', 'Arnau', 'Fernandez'),
     (DEFAULT, '89476541Y', 'Joan', 'Marin');
     
-INSERT INTO realiza values
+INSERT INTO Realiza values
 	(1, 1, 1, 78),
 	(2, 2, 2, 80),
     (3, 3, 3, 65);
