@@ -1,0 +1,28 @@
+USE u15_ex12_u12;
+
+INSERT INTO Profesiones values
+	(001, 'Analista', 'Finalizador'),
+	(002, 'Jefe de proyecto', 'Supervisor'),
+    (003, 'Programador', 'Ejecutor');
+    
+INSERT INTO Empresas values
+	('B-123456F', 'Apple', 'C/Falsa 123', '555-666-898', 'EMP01'),
+	('B-541354G', 'Microsoft', 'C/Verdadera 456', '555-565-857', 'EMP02'),
+    ('B-842452Y', 'Dell', 'C/Paquita 999', '555-874-212', 'EMP03');
+    
+INSERT INTO Proyectos values
+	(001, '2022-11-11', '2022-01-01', '2100-12-31', 'B-123456F'),
+	(002, '2022-12-12', '2022-02-14', '2100-10-03', 'B-541354G'),
+    (003, '2023-02-11', '2022-03-21', '2100-11-30', 'B-842452Y');
+    
+INSERT INTO Trabajadores values
+	(0001, '19540239B', 'Joana', 'Garcia'),
+	(0002, '54651854C', 'Arnau', 'Fernandez'),
+    (0003, '89476541Y', 'Joan', 'Marin');
+    
+INSERT INTO Realiza values
+	(0001, 001, 001, 78),
+	(0002, 002, 002, 80),
+    (0003, 003, 003, 65);
+    
+SELECT * FROM empresas;
