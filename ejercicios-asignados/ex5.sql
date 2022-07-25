@@ -1,3 +1,53 @@
+DROP DATABASE IF EXISTS ex5_asignado_final;
+CREATE DATABASE ex5_asignado_final;
+USE ex5_asignado_final;
+
+CREATE TABLE TipoPiezas(
+    tipo varchar(5) PRIMARY KEY,
+    descripcion varchar(100)
+);
+
+CREATE TABLE Piezas(
+    modelo int,    
+    tipo varchar(5),   
+    descripcion varchar(100),
+    precio double,
+    PRIMARY KEY(modelo, tipo),
+    CONSTRAINT FK_TipoPiezas FOREIGN KEY (tipo) REFERENCES TipoPiezas(tipo) ON UPDATE CASCADE 
+);
+
+CREATE TABLE Almacenes(
+	idAlmacen int PRIMARY KEY,
+	descripcion varchar(100),
+	direccion varchar(100)
+);
+
+CREATE TABLE Estanterias(
+    idEstanteria varchar(10),
+    idAlmacen int,
+    PRIMARY KEY(idAlmacen,idEstanteria),
+    CONSTRAINT FK_EstanteriasAlmacenes FOREIGN KEY (idAlmacen) REFERENCES Almacenes(idAlmacen) ON UPDATE CASCADE 
+);
+
+CREATE TABLE Almacena(
+    idAlmacen int, #pk compuesta de estanteria
+    idEstanteria varchar(10), #pk compuesta de estanteria
+    tipo varchar(5), #pk compuesta de pieza
+    modelo int, #pk compuesta de pieza
+    cantidad int,
+    PRIMARY KEY(idAlmacen,idEstanteria,tipo,modelo),
+    CONSTRAINT FK_AlmacenaEstanteria FOREIGN KEY (idAlmacen,idEstanteria) REFERENCES Estanterias(idAlmacen,idEstanteria) ON UPDATE CASCADE,
+    CONSTRAINT FK_AlmacenaModelo FOREIGN KEY (modelo,tipo) REFERENCES Piezas(modelo,tipo) ON UPDATE CASCADE 
+
+CREATE TABLE Contiene(
+    tipo varchar(5), # pk compuesta de tabla Piezas
+    modelo int, # pk compuesta de tabla Piezas
+    tipoCompuesto varchar(5),
+    modeloCompuesto int,    
+    CONSTRAINT FK_ContieneModelo FOREIGN KEY (modelo,tipo) REFERENCES Piezas(modelo,tipo) ON UPDATE CASCADE,    
+    CONSTRAINT FK_ContieneModeloCompuesto FOREIGN KEY (modelo,tipo) REFERENCES Piezas(modelo,tipo) 
+);
+
 INSERT INTO TipoPiezas VALUES
 	('TU', 'Tuerca'),
     ('VA', 'Válvula'),
@@ -35,3 +85,25 @@ INSERT INTO Almacena VALUES
 	
 INSERT INTO Contiene VALUES
 	('BI', 1, 'TU', 1);
+	
+
+UPDATE TipoPiezas SET descripcion='Taponazo' WHERE tipo='TA';
+
+UPDATE Almacenes SET DESCRIPCION='MECANICA' WHERE IDALMACEN=3;
+UPDATE Almacenes SET idalmacen=6 WHERE idalmacen = 4;
+UPDATE Almacenes SET idalmacen=7 WHERE idalmacen = 1;
+
+UPDATE estanterias SET idalmacen=7 WHERE idestanteria like 'AAA';
+
+REPLACE INTO PIEZAS VALUES
+	(1, 'VA', 'compuesta', 1.99);
+REPLACE INTO Contiene VALUES
+	('VA', 1, 'MU', 1);
+
+
+SELECT * FROM TIPOPIEZAS;
+SELECT * FROM PIEZAS;
+SELECT * FROM almacenes;
+SELECT * FROM estanterias;
+SELECT * FROM almacena;
+SELECT * FROM contiene;
