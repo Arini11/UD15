@@ -50,9 +50,9 @@ CREATE TABLE Compras(
 );
 
 CREATE TABLE Titulares(
-	id int PRIMARY KEY,
     codigoCompra int,
     codigoPersonal int,
+    PRIMARY KEY(codigoCompra,codigoPersonal),
     CONSTRAINT FK_TitularCompra FOREIGN KEY (codigoCompra) REFERENCES Compras(codigoCompra),
 	CONSTRAINT FK_TitularPersona FOREIGN KEY (codigoPersonal) REFERENCES Personas(codigoPersonal)
 );
@@ -123,12 +123,12 @@ INSERT INTO Compras VALUES
     (5,'2022-06-07',300000,1);
     
 INSERT INTO Titulares VALUES
-	(1,1,2),
-    (2,2,2),    
-    (3,4,3),
-    (4,3,4),
-    (5,5,4),
-    (6,5,3); #LA MISMA COMPRA PUEDE TENER VARIOS TITULARES
+	(1,2),
+    (2,2),    
+    (4,3),
+    (3,4),
+    (5,4),
+    (5,3); #LA MISMA COMPRA PUEDE TENER VARIOS TITULARES
 
 INSERT INTO Alquileres VALUES
 	(1,6,1,2),
@@ -146,8 +146,6 @@ INSERT INTO Pagos VALUES
     (5,1,7,'abril',2018,400),
     (6,2,8,'mayo',2022,500);
     
-   
-   
 select * from alquileres;
 select * from compras;
 select * from garajes;
@@ -156,4 +154,4 @@ select * from locales;
 select * from pagos;
 select * from personas;
 select * from pisos;
-select * from titulares;   
+select * from titulares;
