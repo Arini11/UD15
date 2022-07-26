@@ -68,7 +68,7 @@ CREATE TABLE Alquileres(
 );
 
 CREATE TABLE Pagos(
-    codigoPago int,
+    codigoPago int PRIMARY KEY,
     codigoAlquiler int,
     codigoInmueble int,
     mes VARCHAR(15),
@@ -140,6 +140,7 @@ INSERT INTO Alquileres VALUES
 
 INSERT INTO Pagos VALUES
 	(1,1,6,'febrero',2010,400),
+	(7,1,6,'marzo',2010,400),
     (2,2,9,'marzo',2012,350),
     (3,3,10,'octubre',2015,650),
     (4,4,11,'enero',2016,300),
