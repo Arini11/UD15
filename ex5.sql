@@ -23,6 +23,10 @@ INSERT INTO FACULTAD VALUES
     (8,'Robótica'),
     (9,'Química'),
     (10,'Historia');
+    
+UPDATE FACULTAD SET nombre='Ingeniería Mecánica' WHERE codigo=4;
+UPDATE FACULTAD SET nombre='Historia de España' WHERE nombre LIKE 'Historia';
+DELETE FROM FACULTAD WHERE nombre LIKE 'Física' OR nombre LIKE 'Química';
 
 CREATE TABLE INVISTIGADORES (
 	dni varchar(9) PRIMARY KEY,
@@ -43,6 +47,10 @@ INSERT INTO INVISTIGADORES
     ('39433791H','Jordi Ribelles',4),
     ('39933111H','Naiara López',5),
     ('30033791H','Cristhian Requena',5);
+    
+UPDATE INVISTIGADORES SET nombre='Ingeniería Mecánica' WHERE codigo=4;
+UPDATE INVISTIGADORES SET nombre='Historia de España' WHERE nombre LIKE 'Historia';
+DELETE FROM INVISTIGADORES WHERE nombre LIKE 'Física' OR nombre LIKE 'Química';
 
 CREATE TABLE EQUIPOS(
 	numSerie char(4) PRIMARY KEY,
