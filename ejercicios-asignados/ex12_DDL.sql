@@ -1,3 +1,9 @@
+/*
+juan hace los inserts en archivo a parte, finalmente modificamos inserts cn 
+autoincrementales y lo añadimos todo en un unico archivo (este) que tambien contiene
+los updates, deletes y las modificaciones necesarias en la creacion de tablas
+*/
+
 DROP DATABASE IF EXISTS u14_ex12_u12;
 CREATE DATABASE u14_ex12_u12;
 use u14_ex12_u12;
@@ -84,6 +90,6 @@ UPDATE Proyectos SET fechaFin='9999-12-31' WHERE idProyecto=1;
 UPDATE Proyectos SET fechaFin='9999-12-31' WHERE idEmpresa='B-541354G';
 
 SELECT * FROM Trabajadores;
-DELETE FROM Trabajadores ORDER BY apellidos LIMIT 1;
+DELETE FROM Trabajadores ORDER BY apellidos LIMIT 1; #comprobacion de error al tener on delete restrict
 
 SELECT * FROM Realiza;
