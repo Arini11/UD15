@@ -38,6 +38,7 @@ CREATE TABLE Almacena(
     PRIMARY KEY(idAlmacen,idEstanteria,tipo,modelo),
     CONSTRAINT FK_AlmacenaEstanteria FOREIGN KEY (idAlmacen,idEstanteria) REFERENCES Estanterias(idAlmacen,idEstanteria) ON UPDATE CASCADE,
     CONSTRAINT FK_AlmacenaModelo FOREIGN KEY (modelo,tipo) REFERENCES Piezas(modelo,tipo) ON UPDATE CASCADE 
+    );
 
 CREATE TABLE Contiene(
     tipo varchar(5), # pk compuesta de tabla Piezas
@@ -88,12 +89,15 @@ INSERT INTO Contiene VALUES
 	
 
 UPDATE TipoPiezas SET descripcion='Taponazo' WHERE tipo='TA';
-
 UPDATE Almacenes SET DESCRIPCION='MECANICA' WHERE IDALMACEN=3;
 UPDATE Almacenes SET idalmacen=6 WHERE idalmacen = 4;
 UPDATE Almacenes SET idalmacen=7 WHERE idalmacen = 1;
-
 UPDATE estanterias SET idalmacen=7 WHERE idestanteria like 'AAA';
+
+DELETE FROM TipoPiezas WHERE descripcion='Taponazo';
+DELETE FROM Almacena WHERE idAlmacen=1;
+DELETE FROM Almacenes WHERE descripcion='Cliente 39933';
+
 
 REPLACE INTO PIEZAS VALUES
 	(1, 'VA', 'compuesta', 1.99);
