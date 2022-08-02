@@ -79,7 +79,7 @@ CREATE TABLE Pagos(
 
 
 
-INSERT INTO personas VALUES
+INSERT INTO Personas VALUES
 (1,'4576543F','maria','navarro','93211234','654332211',true,false), #es gestora
 (2,'3456754P','marta','periago','76331256','675332211',false,true),
 (3,'4567654p','arnau','mas','97723421','655321234',true,true),
@@ -146,6 +146,16 @@ INSERT INTO Pagos VALUES
     (4,4,11,'enero',2016,300),
     (5,1,7,'abril',2018,400),
     (6,2,8,'mayo',2022,500);
+    
+UPDATE Personas SET nombre='Alfonso' WHERE dni='4576543F';
+UPDATE Personas SET nombre='Grimaldo' WHERE dni='4567543H';
+UPDATE Inmuebles SET metros=80 WHERE codigoInmueble=4;
+UPDATE Pagos SET año=2021 WHERE codigoPago =6;
+
+DELETE FROM Titulares WHERE codigoCompra=1;
+DELETE FROM Alquileres WHERE codigoAlquiler=7;
+DELETE FROM Compras WHERE codigoCompra=1;
+
     
 select * from alquileres;
 select * from compras;
